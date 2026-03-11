@@ -272,41 +272,51 @@ class _SellerAddProductScreenState
               const SizedBox(height: 12),
               Row(
                 children: [
-                  Container(
-                    width: 72,
-                    height: 72,
-                    decoration: BoxDecoration(
-                      color: accentColor.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: accentColor.withValues(alpha: 0.5),
+                  GestureDetector(
+                    onTap: () {
+                      _showSnack('Image upload service is temporarily down for maintenance.', isError: true);
+                    },
+                    child: Container(
+                      width: 72,
+                      height: 72,
+                      decoration: BoxDecoration(
+                        color: accentColor.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: accentColor.withValues(alpha: 0.5),
+                        ),
                       ),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.add_a_photo_outlined,
-                        color: accentColor,
-                        size: 28,
+                      child: Center(
+                        child: Icon(
+                          Icons.add_a_photo_outlined,
+                          color: accentColor,
+                          size: 28,
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(width: 12),
                   ...List.generate(
                     3,
-                    (index) => Container(
-                      width: 72,
-                      height: 72,
-                      margin: const EdgeInsets.only(right: 12),
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: borderColor),
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.image_outlined,
-                          color: secondaryTextColor.withValues(alpha: 0.5),
-                          size: 28,
+                    (index) => GestureDetector(
+                      onTap: () {
+                        _showSnack('Image upload service is temporarily down for maintenance.', isError: true);
+                      },
+                      child: Container(
+                        width: 72,
+                        height: 72,
+                        margin: const EdgeInsets.only(right: 12),
+                        decoration: BoxDecoration(
+                          color: cardColor,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: borderColor),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.image_outlined,
+                            color: secondaryTextColor.withValues(alpha: 0.5),
+                            size: 28,
+                          ),
                         ),
                       ),
                     ),
@@ -512,7 +522,7 @@ class _SellerAddProductScreenState
                     Switch(
                       value: _isFeatured,
                       onChanged: (val) => setState(() => _isFeatured = val),
-                      activeColor: Colors.white,
+                      activeThumbColor: Colors.white,
                       activeTrackColor: accentColor,
                       inactiveThumbColor: secondaryTextColor,
                       inactiveTrackColor: isDark
